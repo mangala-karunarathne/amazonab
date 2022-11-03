@@ -9,7 +9,7 @@ export default function ProductScreen(props) {
   let {id}=useParams()
   const product = data.products.find((x) => x._id === id);
   if(!product) {
-    return <div> Product Not Found</div>
+    return
   } else {
     console.log("first :", product.name)
     return (
@@ -35,7 +35,6 @@ export default function ProductScreen(props) {
                <p>{product.description}</p>
               </li>
             </ul>
-  
           </div>
           <div className='col-1'>
             <div className='card card-body'>
@@ -63,13 +62,11 @@ export default function ProductScreen(props) {
                 </li>
               </ul>
             </div>
-  
           </div>
-  
         </div>
       </div>
     )
-
   }
+  }
+   
     
-}

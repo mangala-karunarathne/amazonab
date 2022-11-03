@@ -2,19 +2,16 @@ import React from 'react';
 import '../index.css';
 import data from '../data';
 import Rating from '../components/Rating';
-import { withRouter } from "react-router-dom";
+import { useParams, withRouter } from "react-router-dom";
 
 
 export default function ProductScreen(props) {
-
-  // const product = data.products.find((x) => x._id === props.match.params.id);
-  // if(!product) {
-  //   return <div> Product Not Found</div>
-
-
-  const {product} = props.data.products
-
-    console.log("first", product.name)
+  let {id}=useParams()
+  const product = data.products.find((x) => x._id === id);
+  if(!product) {
+    return <div> Product Not Found</div>
+  } else {
+    console.log("first :", product.name)
     return (
       <div>
         <div className='row'>
@@ -73,4 +70,6 @@ export default function ProductScreen(props) {
       </div>
     )
 
+  }
+    
 }

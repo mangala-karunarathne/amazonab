@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  height: 100vh;
+  font-size: 1.6rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -127,6 +129,32 @@ li {
   margin-top: 1rem ;
 }
 
+button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #a4a4a4 solid;
+  font-size: 1.6rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+button.primary {
+  background-color: #f0c040;
+}
+
+button.block {
+   width: 100%;
+}
+
+button:hover{
+  border: 0.2rem #404040 solid;
+}
+
 /* Images */
 img {
   border-radius: 0.5rem;
@@ -138,6 +166,7 @@ img.medium {
 
 img.large {
   width: 58rem;
+  /* width: 100%; */
   height: 60rem;
 }
 
@@ -170,3 +199,15 @@ img.large {
 .rating span:last-child{
   color: #404044;
 }
+
+/* Alert */
+.success {
+  color: #20a020;
+  font-weight: bold;
+}
+
+.error {
+  color: #a02020;
+  font-weight: bold;
+}
+

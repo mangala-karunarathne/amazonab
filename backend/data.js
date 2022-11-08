@@ -3,7 +3,7 @@
 // import p3 from './images/p3.jpg';
 // import P4 from './images/P4.jpg';
 // import P5 from './images/P5.jpg';
-// import P6 from './images/P6.jpg';
+// import P6 from '../frontend/src/images/P1.jpg';
 
 
 
@@ -13,7 +13,7 @@ const data = {
             _id: '1',
             name: 'Nike Slim Shirts',
             category: 'Shirts',
-            // image: P1,
+            image: "../frontend/src/images/P1.jpg",
             price: 120,
             countInStock:10,
             brand: 'Nike',

@@ -1,23 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../index.css';
 import data from '../data';
 import Rating from '../components/Rating';
 import { Link, useParams, withRouter } from "react-router-dom";
+import axios from 'axios';
 
 
 export default function ProductScreen(props) {
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const {data} = await axios.get('http://localhost:5000/api/products');
+      setProducts(data);
+      console.log("aaa", products.image)
+    };
+    fetchData();
+  }, []);
+
   let {id}=useParams()
   const product = data.products.find((x) => x._id === id);
   if(!product) {
     return
   } else {
-    console.log("first :", product.name)
+    console.log("first :", products.name)
     return (
       <div>
         <Link className='productLink' to='/'>Back to Result</Link>
         <div className='row top'>
           <div className='col-2'>
-            <img className='large' src={product.image} alt={product.name}/>
+            <img className='large' src={products.image} alt={product.name}/>
           </div>
           <div className='col-1'>
             <ul>

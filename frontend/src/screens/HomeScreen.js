@@ -10,11 +10,20 @@ import '../index.css';
 function HomeScreen() {
 
   const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const {data} = await axios.get('http://localhost:5000/api/products');
-      setProduct(data);
+      try {
+        setLoading(true);
+        const {data} = await axios.get('http://localhost:5000/api/products');
+        setProduct(data); 
+      } catch (err){
+        setLoading(false);
+        setError(err.message)
+      }
+      
     };
     fetchData();
   }, []);

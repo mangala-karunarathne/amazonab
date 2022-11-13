@@ -1,9 +1,9 @@
-// import P1 from './images/P1.jpg';
-// import P2 from './images/P2.jpg';
-// import p3 from './images/p3.jpg';
-// import P4 from './images/P4.jpg';
-// import P5 from './images/P5.jpg';
-//import P6 from '../frontend/src/images/P1.jpg';
+import P1 from './images/P1.jpg';
+import P2 from './images/P2.jpg';
+import p3 from './images/p3.jpg';
+import P4 from './images/P4.jpg';
+import P5 from './images/P5.jpg';
+import P6 from './images/P6.jpg';
 
 
 
@@ -13,7 +13,7 @@ const data = {
             _id: '1',
             name: 'Nike Slim Shirts',
             category: 'Shirts',
-            // image: './images/P1.jpg',
+            image: P1,
             price: 120,
             countInStock:10,
             brand: 'Nike',
@@ -26,7 +26,7 @@ const data = {
             _id: '2',
             name: 'Adidas Slim Shirts',
             category: 'Shirts',
-            // image: P2,
+            image: P2,
             price: 100,
             countInStock:15,
             brand: 'Adidas',
@@ -39,7 +39,7 @@ const data = {
             _id: '3',
             name: 'Lacoste Free Shirts',
             category: 'Shirts',
-            // image: p3,
+            image: p3,
             price: 220,
             countInStock:13,
             brand: 'Lacoste',
@@ -52,7 +52,7 @@ const data = {
             _id: '4',
             name: 'Nike Slim Pants',
             category: 'Pants',
-            // image: P4,
+            image: P4,
             price: 78,
             countInStock:18,
             brand: 'Nike',
@@ -65,7 +65,7 @@ const data = {
             _id: '5',
             name: 'Puma Slim Pants',
             category: 'Pants',
-            // image: P5,
+            image: P5,
             price: 68,
             countInStock:0,
             brand: 'Puma',
@@ -78,7 +78,7 @@ const data = {
             _id: '6',
             name: 'Adidas Fit Pants',
             category: 'Pants',
-            // image: P6,
+            image: P6,
             price: 135,
             countInStock:17,
             brand: 'Adidas',

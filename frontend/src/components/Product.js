@@ -1,8 +1,6 @@
 import React from 'react';
 import Rating from './Rating';
-
 const Product = (props) => {
-
   return (
     <div key={props.product._id} className="card">
         <a href={`/product/${props.product._id}`}>
@@ -18,5 +16,4 @@ const Product = (props) => {
      </div>
     );
 }
-
 export default Product

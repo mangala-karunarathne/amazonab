@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import '../index.css';
 import data from '../data';
 import Rating from '../components/Rating';
-import { Link, useParams, withRouter } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 
 
-export default function ProductScreen(props) {
+export default function ProductScreen() {
 
   const [products, setProducts] = useState([]);
 
@@ -14,7 +14,6 @@ export default function ProductScreen(props) {
     const fetchData = async () => {
       const {data} = await axios.get('http://localhost:5000/api/products');
       setProducts(data);
-      console.log("aaa", products.image)
     };
     fetchData();
   }, []);
@@ -22,9 +21,8 @@ export default function ProductScreen(props) {
   let {id}=useParams()
   const product = data.products.find((x) => x._id === id);
   if(!product) {
-    return
+    return <div>No data Available</div>
   } else {
-    console.log("first :", products.name)
     return (
       <div>
         <Link className='productLink' to='/'>Back to Result</Link>
@@ -66,7 +64,7 @@ export default function ProductScreen(props) {
                       {product.countInStock> 0 ? (
                         <span className='success'>In Stock</span>
                       ) : (
-                        <span className='error'>Out of Stock</span>
+                        <span className='danger'>Out of Stock</span>
                       )}
                     </div>
                   </div>
@@ -81,6 +79,6 @@ export default function ProductScreen(props) {
       </div>
     )
   }
-  }
+}
    
     

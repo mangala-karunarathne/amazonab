@@ -12,7 +12,7 @@ export default function ProductScreen(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const {data} = await axios.get('http://localhost:5000/api/products');
+      const {data} = await axios.get('/api/products');
       setProducts(data);
       console.log("aaa", products.image)
     };
@@ -22,7 +22,7 @@ export default function ProductScreen(props) {
   let {id}=useParams()
   const product = data.products.find((x) => x._id === id);
   if(!product) {
-    return
+    return <div>No Data Available</div>
   } else {
     console.log("first :", products.name)
     return (

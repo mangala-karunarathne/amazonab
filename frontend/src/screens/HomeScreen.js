@@ -1,51 +1,32 @@
-import axios from 'axios';
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect } from 'react';
+
 import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import '../index.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { listProducts } from '../actions/productActions';
 
-function HomeScreen() {
-
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+export default function HomeScreen() {
+  const dispatch = useDispatch();
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const {data} = await axios.get('http://localhost:5000/api/products');
-      setProduct(data); 
-      setLoading(false);
-    } catch (err){
-      setLoading(false);
-      setError(err.message)
-    }
-  };
-
+    dispatch(listProducts());
+  }, [dispatch]);
   return (
-          <div>
-            {
-              (loading? (
-                <LoadingBox></LoadingBox>
-              ) : error? (
-                <MessageBox variant="danger">{error}</MessageBox>
-              ) : (
-                <div className="row center">
-                {
-                    product.map((item) =>(   
-                        <Product key={item._id} product={item}/>
-                    ))
-                }
-                </div> 
-              ))}    
-          </div>    
+    <div>
+      {loading ? (
+        <LoadingBox></LoadingBox>
+      ) : error ? (
+        <MessageBox variant="danger">{error}</MessageBox>
+      ) : (
+        <div className="row center">
+          {products.map((product) => (
+            <Product key={product._id} product={product}></Product>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
-export default HomeScreen
